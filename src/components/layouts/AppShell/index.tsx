@@ -10,7 +10,10 @@ const AppShell: React.FC<AppShellProps> = (props: AppShellProps ) => {
     return (
         <main className='app-shell'>
             <Navbar />
-            {children}
+            <div className='content'>
+                {children}
+            </div>
+            <div className='content'>Footer</div>
         </main>
     );
 }
