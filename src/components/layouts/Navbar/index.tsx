@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import style from './Navbar.module.css';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className='navbar'>
+    <nav className={`${style.navbar} navbar bg-blue-500`}>
         <ul>
             <li>
                 <Link href={"/"}>ShopSmart</Link>
@@ -16,14 +17,14 @@ const Navbar: React.FC = () => {
         </ul>
         <ul>
             <li>
-                <Link href={"/login"}>login</Link>
+                <Link href={"/auth/login"}>login</Link>
             </li>
             <li>
                 <Link href={"/cart"}>cart</Link>
             </li>
        </ul>
     </nav>
-  );
+  )
 }
 
 export default Navbar;
