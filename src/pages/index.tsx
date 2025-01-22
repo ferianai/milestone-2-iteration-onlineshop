@@ -1,7 +1,12 @@
+import Head from "next/head";
+
 export default function Home() {
   return (
     <div>
-      <h1>Hello Hello Hello</h1>
+      <Head>
+        <title>ShopSmart</title>
+      </Head>
+      <h1>Welcome to ShopSmart</h1>
     </div>
   );
 }
