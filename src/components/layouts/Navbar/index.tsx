@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className={`${style.navbar} navbar bg-blue-500`}>
+        <nav className={`${style.navbar} bg-blue-500`}>
             <ul>
                 <li>
                     <Link href={"/"}>ShopSmart</Link>

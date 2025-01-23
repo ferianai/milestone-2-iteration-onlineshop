@@ -1,0 +1,125 @@
+/* Main container for the cart */
+.cartContainer {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    height: 100%;
+  }
+  
+  /* Cart items list */
+  .cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Individual cart item */
+  .cartItem {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  /* Item image */
+  .cartItemImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Cart item details */
+  .cartItemDetails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Cart item actions (remove button, quantity, add button) */
+  .cartItemActions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .cartItemActions button {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .cartItemActions button:hover {
+    background-color: #ff1a1a;
+  }
+  
+  /* Quantity buttons */
+  .quantity {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  .quantity button {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .quantity button:hover {
+    background-color: #005f73;
+  }
+  
+  .quantity span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Cart summary */
+  .cartSummary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    text-align: center;
+  }
+  
+  /* Checkout button */
+  .checkoutButton button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .checkoutButton button:hover {
+    background-color: #218838;
+  }
+  
+  .checkoutButton a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .checkoutButton a:hover {
+    text-decoration: underline;
+  }
+  

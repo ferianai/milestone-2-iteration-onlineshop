@@ -1,3 +1,4 @@
+import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { useRouter } from "next/router";
 
@@ -17,7 +18,9 @@ const AppShell: React.FC<AppShellProps> = (props: AppShellProps ) => {
             <div className='content'>
                 {children}
             </div>
-            {/* <div className='content'>Footer</div> */}
+            <div>
+                <Footer />
+            </div>
         </main>
     );
 }
