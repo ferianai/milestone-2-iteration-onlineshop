@@ -139,15 +139,15 @@ ShopSmart/
 ├── node_modules/               # Project dependencies
 ├── public/                     # Public assets such as images, icons
 ├── src/                        # Source folder containing application code
-    ├── components/             # Reusable React components
-    ├── context/                # CartContext and provider
-    ├── lib/                    # Utility functions
-    ├── middlewares/            # Middlewares for request handling
-    ├── mocks/                  # Mock data for testing
-    ├── pages/                  # Next.js pages (Product, Product Detail, etc.)
-    ├── styles/                 # Global and component-specific styles
-    ├── TS types/               # TypeScript type definitions
-    ├── views/                  # Views for product and other pages
+      ├── components/           # Reusable React components
+      ├── context/              # CartContext and provider
+      ├── lib/                  # Utility functions
+      ├── mocks/                # Mock data for testing
+      ├── pages/                # Next.js pages (Product, Product Detail, etc.)
+      ├── styles/               # Global and component-specific styles
+      ├── TS types/             # TypeScript type definitions
+      ├── views/                # Views for product and other pages
+      ├── middlewares.ts        # Middlewares for request handling
 ├── .gitignore                  # Git ignore file
 ├── jest.config.ts              # Jest configuration
 ├── jest.setup.ts               # Jest setup file
