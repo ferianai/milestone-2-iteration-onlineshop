@@ -25,11 +25,25 @@ const DetailProductPage = ({ initialProduct, error }: DetailProductPageProps) =>
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4 text-center">{initialProduct.title}</h1>
       <div className="text-center mb-6">
-        <img
-          src={initialProduct.images[0] || "/fallback-image.jpg"}
-          alt={initialProduct.title}
-          className="w-full h-64 object-cover rounded-md"
-        />
+        {/* Loop through all images and display them */}
+        <div className="flex flex-wrap justify-center gap-4">
+          {initialProduct.images && initialProduct.images.length > 0 ? (
+            initialProduct.images.map((img: string, index: number) => (
+              <img
+                key={index}
+                src={img || "/fallback-image.jpg"}
+                alt={`${initialProduct.title} - Image ${index + 1}`}
+                className="w-64 h-64 object-cover rounded-md"
+              />
+            ))
+          ) : (
+            <img
+              src="/public/fallback-image.jpg"
+              alt="Fallback Image"
+              className="w-64 h-64 object-cover rounded-md"
+            />
+          )}
+        </div>
         <p className="mt-4 text-xl">${initialProduct.price}</p>
         <p className="mt-2">{initialProduct.description}</p>
       </div>
@@ -63,14 +77,24 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     const product = await response.json();
 
-    // Fix the `images` field if it contains a JSON-encoded string
-    if (Array.isArray(product.images) && typeof product.images[0] === "string") {
-      try {
-        product.images = JSON.parse(product.images[0]);
-      } catch (e) {
-        console.error("Failed to parse images:", e);
-        product.images = [];
-      }
+    // Fix the `images` field if it contains a stringified JSON array
+    if (Array.isArray(product.images)) {
+      product.images = product.images.map((img: string) => {
+        try {
+          // Check if the image is a stringified JSON array
+          if (img.startsWith("[") && img.endsWith("]")) {
+            // Parse the image string to get the actual URLs
+            const parsedImages = JSON.parse(img);
+            // Return the first image URL
+            return parsedImages[0];
+          }
+          // If the image is not in JSON array format, just return it directly
+          return img;
+        } catch (error) {
+          console.error("Error parsing image URL:", error);
+          return img; // Fallback to original image if parsing fails
+        }
+      });
     }
 
     return {
@@ -94,6 +118,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 };
-
 
 export default DetailProductPage;

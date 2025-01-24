@@ -83,6 +83,7 @@ describe("ProductPage", () => {
     });
   });
 
+  // Basic rendering tests
   describe("Basic Rendering", () => {
     it("renders the page and checks for products", async () => {
       render(
@@ -110,6 +111,60 @@ describe("ProductPage", () => {
       mockCategories.forEach((category) => {
         expect(screen.getByText(category.name)).toBeInTheDocument();
       });
+    });
+  });
+
+  //Error handling tests
+  describe("Error Handling", () => {
+    it("should show an error message when fetching categories fails", async () => {
+      server.use(
+        rest.get("https://api.escuelajs.co/api/v1/categories", (req, res, ctx) => {
+          return res(ctx.status(500), ctx.json({ message: "Server Error" }));
+        })
+      );
+
+      render(
+        <CartProvider>
+          <ProductPage productsData={mockProducts} categoriesData={[]} />
+        </CartProvider>
+      );
+
+      // Wait for the error to appear
+      await waitFor(() => screen.getByText("Error fetching categories"));
+    });
+
+    it("should show an error message when fetching products fails", async () => {
+      server.use(
+        rest.get("https://api.escuelajs.co/api/v1/products", (req, res, ctx) => {
+          return res(ctx.status(500), ctx.json({ message: "Server Error" }));
+        })
+      );
+
+      render(
+        <CartProvider>
+          <ProductPage productsData={[]} categoriesData={mockCategories} />
+        </CartProvider>
+      );
+
+      // Wait for the error to appear
+      await waitFor(() => screen.getByText("Error fetching products"));
+    });
+  });
+
+  // Authentication tests
+  describe("Authentication", () => {
+    it("redirects to login page if access_token is not present", () => {
+      // Remove the access token to trigger the redirect
+      localStorage.removeItem("access_token");
+
+      render(
+        <CartProvider>
+          <ProductPage productsData={mockProducts} categoriesData={mockCategories} />
+        </CartProvider>
+      );
+
+      // Check if the router push was called to redirect to login page
+      expect(useRouter().push).toHaveBeenCalledWith("/auth/login");
     });
   });
 });

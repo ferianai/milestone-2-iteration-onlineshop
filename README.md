@@ -1,40 +1,186 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# ShopSmart - Online Store Application
 
-## Getting Started
+ShopSmart is a dynamic and interactive online store application built with **Next.js**, **TypeScript**, and **Tailwind CSS**. This project showcases essential features of a modern e-commerce platform, including user authentication, product browsing, and a shopping cart system.
 
-First, run the development server:
+## Overview of the Application
+
+ShopSmart is designed to provide users with a seamless online shopping experience. Users can browse products, view details, filter by categories, add items to their cart, and manage their shopping process efficiently. The application integrates a backend API for dynamic data fetching and includes essential features like authentication and responsive design.
+
+## Features Implemented
+
+1. **User Authentication**: Login and register functionality using a backend API.
+2. **Product Browsing**: View a list of products with details fetched from an API.
+3. **Product Categories**: Filter products by categories.
+4. **Shopping Cart**: Add products to the cart and manage the shopping list.
+5. **Home Page**: Features a carousel of popular products and a section for random products.
+6. **Product Detail Page**: Displays detailed information about a selected product, including multiple images and a description.
+7. **Image Parsing**: Added functionality to handle image parsing for product images. If product images are returned as stringified JSON, the code parses and extracts the valid image URLs.
+
+## Installation Instructions
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/your-username/shopsmart.git
+   cd shopsmart
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   The application will be running at [http://localhost:3000](http://localhost:3000).
+
+## Testing Methodologies Used
+
+- **Jest**: The project uses **Jest** for unit and integration testing. Tests are written to ensure that components and functions work as expected.
+- **React Testing Library**: For testing React components, **React Testing Library** is used in conjunction with Jest to simulate user interactions and assert the behavior of the components.
+- **End-to-End Testing**: Not implemented yet but can be added using frameworks like **Cypress** or **Playwright** for simulating real user scenarios.
+
+### Running Tests
+
+To run the test suite, execute the following command:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Running Test Coverage
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To check the code coverage of your tests, run:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run test:coverage
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+#### Test Results
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```plaintext
+Node.js v18.20.6
+-----------------------------|---------|----------|---------|---------|--------------------
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------------------------|---------|----------|---------|---------|--------------------
+All files                    |   83.67 |    65.51 |      60 |   83.67 |
+ components/layouts/AppShell |     100 |      100 |     100 |     100 |
+  index.tsx                  |     100 |      100 |     100 |     100 |
+ components/layouts/Footer   |   96.37 |      100 |      50 |   96.37 |
+  index.tsx                  |   96.37 |      100 |      50 |   96.37 | 6-10
+ components/layouts/Navbar   |   83.58 |    66.66 |      50 |   83.58 |
+  index.tsx                  |   83.58 |    66.66 |      50 |   83.58 | 18-26,56-57
+ pages/about                 |     100 |      100 |     100 |     100 |
+  index.tsx                  |     100 |      100 |     100 |     100 |
+ pages/product               |   70.19 |       55 |      50 |   70.19 |
+  index.tsx                  |   70.19 |       55 |      50 |   70.19 | 52-53,62-64,77-102
+ pages/users                 |      66 |      100 |      50 |      66 |
+  index.tsx                  |      66 |      100 |      50 |      66 | 11-27
+-----------------------------|---------|----------|---------|---------|--------------------
 
-## Learn More
+Test Suites: 6 passed, 6 total
+Tests:       19 passed, 19 total
+Snapshots:   5 passed, 5 total
+Time:        2.372 s
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- **Next.js** (with TypeScript) for server-side rendering and static site generation.
+- **Tailwind CSS** for styling the components with utility-first CSS.
+- **SWR** for data fetching and caching.
+- **Context API** for state management, specifically for the shopping cart.
+- **Jest** and **React Testing Library** for testing.
+- **Node.js** and **npm** for package management and running the development server.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## API
+
+The application uses the API provided by: **FakeAPI Platzi** ([https://fakeapi.platzi.com/](https://fakeapi.platzi.com/))
+
+## Screenshots or Demo Links
+
+### Product Listing Page
+
+![Product Listing](public/images/product-listing.png)
+
+### Product Detail Page
+
+![Product Detail](public/images/product-detail.png)
+
+### Demo Link
+
+You can view the live demo of the application here:  
+[Live Demo Link](http://localhost:3000) (Only available when running locally).
+
+---
+
+## Directory Structure
+
+```
+ShopSmart/
+├── .next/                      # Next.js build output
+├── .SWC/                       # SWC build cache
+├── coverage/                   # Jest test coverage reports
+├── node_modules/               # Project dependencies
+├── public/                     # Public assets such as images, icons
+├── src/                        # Source folder containing application code
+    ├── components/             # Reusable React components
+    ├── context/                # CartContext and provider
+    ├── lib/                    # Utility functions
+    ├── middlewares/            # Middlewares for request handling
+    ├── mocks/                  # Mock data for testing
+    ├── pages/                  # Next.js pages (Product, Product Detail, etc.)
+    ├── styles/                 # Global and component-specific styles
+    ├── TS types/               # TypeScript type definitions
+    ├── views/                  # Views for product and other pages
+├── .gitignore                  # Git ignore file
+├── jest.config.ts              # Jest configuration
+├── jest.setup.ts               # Jest setup file
+├── next-env.d.ts               # Next.js TypeScript environment types
+├── next.config.ts              # Next.js configuration
+├── package-lock.json           # npm lock file for exact dependency versions
+├── package.json                # npm package file
+├── postcss.config.mjs          # PostCSS configuration
+├── README.md                   # Project overview and instructions
+├── tailwind.config.ts          # Tailwind CSS configuration
+└── tsconfig.json               # TypeScript configuration
+```
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploying the ShopSmart application on Vercel is straightforward:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+1. **Create a Vercel Account**: Sign up at [Vercel](https://vercel.com/) if you don't already have an account.
+
+2. **Install Vercel CLI (Optional)**: To deploy via CLI, install the Vercel CLI:
+
+   ```bash
+   npm install -g vercel
+   ```
+
+3. **Link Your Project**:
+
+   ```bash
+   vercel
+   ```
+
+   Follow the prompts to link your project to your Vercel account.
+
+4. **Push to GitHub**:
+   Ensure your code is pushed to a GitHub repository. Vercel integrates seamlessly with GitHub, and you can deploy your app directly from your repository.
+
+5. **Deploy the Application**:
+
+   - Log in to your Vercel dashboard.
+   - Click **New Project** and import your GitHub repository.
+   - Configure the project settings (if needed) and click **Deploy**.
+
+6. **View Your Application**:
+   After deployment, Vercel will provide a live link to your application.
+
+For more details, refer to the official [Vercel Documentation](https://vercel.com/docs).

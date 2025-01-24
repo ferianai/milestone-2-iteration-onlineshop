@@ -1,11 +1,10 @@
+// pages/product.tsx
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ProductViews from "@/views/Product";
 import useSWR from "swr";
 import { ProductPageProps, ProductType, CategoryType } from "@/types/product.type";
-
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+import { fetcher } from "@/lib/fetcher";  // Import fetcher from the lib
 
 const ProductPage: React.FC<ProductPageProps> = ({ categoriesData, productsData }) => {
   const [products, setProducts] = useState<ProductType[]>(productsData || []);
@@ -25,40 +24,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ categoriesData, productsData 
       push("/auth/login");
     }
   }, []);
-
-  const fetcher = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    
-    // Parse and clean up images for each product
-    if (Array.isArray(data)) {
-      return data.map((product: any) => {
-        if (Array.isArray(product.images)) {
-          product.images = product.images.map((image: any) => {
-            if (typeof image === "string" && image.trim() !== "") {
-              try {
-                // Check if the string is a valid JSON array
-                if (image.startsWith("[") && image.endsWith("]")) {
-                  const parsedImage = JSON.parse(image);
-                  if (Array.isArray(parsedImage)) {
-                    return parsedImage[0]; // Use the first image from the parsed array
-                  }
-                }
-                return image; // If not a valid array, fallback to the original string
-              } catch (error) {
-                console.error("Error parsing image:", error);
-                return image; // If parsing fails, fallback to the original string
-              }
-            }
-            return image; // If not a string or empty, return as-is
-          });
-        }
-        return product;
-      });
-    }
-    return data;
-  };
-  
 
   const { data: categoriesDataSWR, error: categoriesError } = useSWR(
     "https://api.escuelajs.co/api/v1/categories",
@@ -99,7 +64,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ categoriesData, productsData 
     }
   }, [productsError, productsDataSWR]);
 
-  if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
   return (
@@ -136,7 +100,5 @@ export async function getServerSideProps() {
     },
   };
 }
-
-
 
 export default ProductPage;
