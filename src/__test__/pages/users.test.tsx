@@ -6,9 +6,6 @@ import { setupServer } from "msw/node";
 import { User } from "@/types/types";
 
 
-
-
-
 // Mock data setup
 // We create sample user data that matches our User interface
 const mockUsers: User[] = [

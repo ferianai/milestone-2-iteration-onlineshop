@@ -34,7 +34,7 @@ const DetailProductPage = ({ initialProduct, error }: DetailProductPageProps) =>
         <p className="mt-2">{initialProduct.description}</p>
       </div>
 
-      <div className="text-center flex justify-center gap-4">
+      <div className="flex justify-center gap-4 text-center mb-6">
         <button
           onClick={() => handleAddToCart(initialProduct)}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"

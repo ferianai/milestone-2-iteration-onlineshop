@@ -11,9 +11,9 @@ const customJestConfig: Config = {
   // Add more setup options before each test is run
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-  testEnvironment: "jest-environment-jsdom",  // Keep this one
+  testEnvironment: "jest-environment-jsdom",  
   testEnvironmentOptions: {
-    customExportConditions: [""], // You can keep this line if needed
+    customExportConditions: [""], 
   },
   moduleDirectories: ["node_modules", "<rootDir>/"],
   modulePaths: ["<rootDir>/src"],
@@ -29,10 +29,24 @@ const customJestConfig: Config = {
     "!<rootDir>/src/middleware.ts",
     "!<rootDir>/src/lib/**",
     "!<rootDir>/src/midlewares/**",
+    "!<rootDir>/src/types/**",
+    "!<rootDir>/src/mocks/**",
+    "!<rootDir>/src/styles/**",
+    "!<rootDir>/src/pages/api/**",
+    "!<rootDir>/src/pages/shop/**",
+    "!<rootDir>/src/pages/setting/**",
+    "!<rootDir>/src/pages/_app.tsx",
+    "!<rootDir>/src/pages/_document.tsx",
+    "!<rootDir>/src/context/**",
+    "!<rootDir>/src/pages/404.tsx",
+    "!<rootDir>/src/views/**",
   ],
-  // moduleNameMapper: {
-  //   "^@/(.*)$": "<rootDir>/src/$1",
-  // },
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
+  transform: {
+    "^.+\\.(ts|tsx)$": "ts-jest", 
+  },
   // testMatch: ["**/__tests__/**/*.test.[jt]s?(x)"],
 
 };

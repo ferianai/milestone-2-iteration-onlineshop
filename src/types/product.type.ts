@@ -5,12 +5,14 @@ export interface ProductType {
     description: string;
     images: string[];
     categoryId: number;
+    category?: CategoryType;
 }
 
 export interface CategoryType {
     id: number;
     name: string;
     image: string;
+    category: string;
 }
 
 export interface ProductPageProps {
