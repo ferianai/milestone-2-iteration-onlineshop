@@ -8,6 +8,12 @@ if (typeof global.TextEncoder === "undefined") {
   global.TextDecoder = require("node:util").TextDecoder;
 }
 
+// Mock visibilityState to prevent errors in tests
+Object.defineProperty(document, 'visibilityState', {
+  value: 'visible',
+  writable: true,
+});
+
 beforeAll(() => {
   // Polyfill fetch and related globals
   Object.defineProperty(window, "fetch", {
