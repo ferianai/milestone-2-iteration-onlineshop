@@ -193,4 +193,6 @@ Deploying the ShopSmart application on Vercel is straightforward:
 6. **View Your Application**:
    After deployment, Vercel will provide a live link to your application.
 
+7. **Deployment Link** : [shopsmart] https://shopsmart-mauve.vercel.app/product
+
 For more details, refer to the official [Vercel Documentation](https://vercel.com/docs).
