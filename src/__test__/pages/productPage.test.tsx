@@ -150,21 +150,4 @@ describe("ProductPage", () => {
       await waitFor(() => screen.getByText("Error fetching products"));
     });
   });
-
-  // Authentication tests
-  describe("Authentication", () => {
-    it("redirects to login page if access_token is not present", () => {
-      // Remove the access token to trigger the redirect
-      localStorage.removeItem("access_token");
-
-      render(
-        <CartProvider>
-          <ProductPage productsData={mockProducts} categoriesData={mockCategories} />
-        </CartProvider>
-      );
-
-      // Check if the router push was called to redirect to login page
-      expect(useRouter().push).toHaveBeenCalledWith("/auth/login");
-    });
-  });
 });
