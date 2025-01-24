@@ -20,7 +20,15 @@ const Navbar: React.FC = () => {
         localStorage.removeItem('refresh_token');
         localStorage.removeItem('user_email');
         localStorage.removeItem('user_name');
-    
+
+        // Clear cookies
+        document.cookie = "access_token=; Max-Age=0; path=/";
+        document.cookie = "refresh_token=; Max-Age=0; path=/";
+
+        // Optionally, remove user-specific data stored in state
+        setEmail(null);
+        setName(null);
+        
         // Redirect to the login page after logging out
         router.push('/auth/login');
     };

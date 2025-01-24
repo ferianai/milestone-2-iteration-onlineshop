@@ -27,7 +27,13 @@ const LoginFormViews = () => {
         throw new Error(errorData.message || "Login failed");
       }
 
+
       const data = await response.json();
+      // Set the access and refresh tokens as cookies
+      document.cookie = `access_token=${data.access_token}; path=/; max-age=3600; SameSite=Strict`;
+      document.cookie = `refresh_token=${data.refresh_token}; path=/; max-age=3600; SameSite=Strict`;
+
+      // Store the tokens in localStorage
       localStorage.setItem("access_token", data.access_token);
       localStorage.setItem("refresh_token", data.refresh_token);
 
@@ -43,6 +49,7 @@ const LoginFormViews = () => {
       localStorage.setItem("user_name", userData.name);
 
       router.push("/");
+
     } catch (err) {
       if (err instanceof Error) {
         console.error("Login failed:", err.message);
