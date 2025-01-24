@@ -17,3 +17,8 @@ export interface ProductPageProps {
   productsData: ProductType[];
   categoriesData: CategoryType[];
 }
+
+export interface DetailProductPageProps {
+  initialProduct: ProductType | null;
+  error: string | null;
+}
