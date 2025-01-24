@@ -117,6 +117,16 @@ The application uses the API provided by: **FakeAPI Platzi** ([https://fakeapi.p
 You can view the live demo of the application here:  
 [Live Demo Link](http://localhost:3000) (Only available when running locally).
 
+for login use user :
+
+```
+    Name    : ana
+    Email   : ana@mail.co
+    Pass    : 123456
+```
+
+if login failed, try register new account.
+
 ---
 
 ## Directory Structure

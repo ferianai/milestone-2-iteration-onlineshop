@@ -16,14 +16,14 @@ const ProductPage: React.FC<ProductPageProps> = ({ categoriesData, productsData 
   const [priceMin, setPriceMin] = useState<number | null>(null);
   const [priceMax, setPriceMax] = useState<number | null>(null);
   const router = useRouter();
-  const { push } = useRouter();
+  // const { push } = useRouter();
 
-  useEffect(() => {
-    const token = localStorage.getItem("access_token");
-    if (!token) {
-      push("/auth/login");
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("access_token");
+  //   if (!token) {
+  //     push("/auth/login");
+  //   }
+  // }, []);
 
   const { data: categoriesDataSWR, error: categoriesError } = useSWR(
     "https://api.escuelajs.co/api/v1/categories",

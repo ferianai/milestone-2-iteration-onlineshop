@@ -23,7 +23,6 @@ const LoginFormViews = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.log("Error Response:", errorData);
         setError(errorData.message || "Login failed");
         throw new Error(errorData.message || "Login failed");
       }
@@ -43,7 +42,7 @@ const LoginFormViews = () => {
       localStorage.setItem("user_email", userData.email);
       localStorage.setItem("user_name", userData.name);
 
-      router.push("/product");
+      router.push("/");
     } catch (err) {
       if (err instanceof Error) {
         console.error("Login failed:", err.message);
