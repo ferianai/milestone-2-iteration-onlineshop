@@ -1,26 +1,16 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useCart } from "@/context/CartContext"; 
+import { ProductType, CategoryType } from '@/types/product.type';
 
-interface Product {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    images: string[];
-    categoryId: number;
-}
-
-const ProductViews = ({ products }: { products: Product[] }) => {
+const ProductViews = ({ products, categories }: { products: ProductType[], categories: CategoryType[] }) => {
     const [titleFilter, setTitleFilter] = useState('');
     const [priceMin, setPriceMin] = useState<number | null>(null);
     const [priceMax, setPriceMax] = useState<number | null>(null);
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
-    const categories: any[] = []; 
-    // const products: any[] = []; 
     const { addToCart } = useCart();
 
-    const handleAddToCart = (product: Product) => {
+    const handleAddToCart = (product: ProductType) => {
         const productWithQuantity = { ...product, quantity: 1 };
         addToCart(productWithQuantity);
         alert(`${product.title} has been added to your cart!`);
@@ -59,7 +49,7 @@ const ProductViews = ({ products }: { products: Product[] }) => {
             className="p-2 border rounded ml-4"
             >
             <option value="">All Categories</option>
-            {categories.map((category) => (
+            {categories?.map((category) => (
                 <option key={category.id} value={category.id}>
                 {category.name}
                 </option>
@@ -76,6 +66,7 @@ const ProductViews = ({ products }: { products: Product[] }) => {
             >
                 <Link href={`/product/${product.id}`}>
                     <img
+                    loading="lazy"
                     src={product.images[0]}
                     alt={product.title}
                     className="w-full h-48 object-cover rounded-md hover:shadow-lg"
