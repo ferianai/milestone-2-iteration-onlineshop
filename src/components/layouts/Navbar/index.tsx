@@ -34,16 +34,21 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className={`${style.navbar} bg-blue-500`}>
+        <nav className={`${style.navbar} border-b border-b-gray-400 py-5 sticky top-0 z-50 bg-white`}>
             <ul>
                 <li>
-                    <Link href={"/"}>ShopSmart</Link>
+                    <Link href={"/"}>Home</Link>
                 </li>
                 <li>
                     <Link href={"/about"}>About</Link>
                 </li>
                 <li>
                     <Link href={"/product"}>Product</Link>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <Link href={"/"}>ShopSmart</Link>
                 </li>
             </ul>
             <ul>

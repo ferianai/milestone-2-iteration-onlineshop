@@ -1,5 +1,4 @@
 .navbar{
-    color: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,5 +13,4 @@
     flex-direction: row;
     gap: 10px;
     list-style-type: none;
-    font-size: 20px;
   }

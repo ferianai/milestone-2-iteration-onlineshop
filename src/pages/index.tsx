@@ -100,7 +100,6 @@ const HomePage: React.FC<ProductPageProps> = ({ categoriesData, productsData }) 
       <Head>
         <title>ShopSmart</title>
       </Head>
-      <h1>Welcome to ShopSmart</h1>
       <HomeViews products={products} categories={categories} />
     </div>
   );

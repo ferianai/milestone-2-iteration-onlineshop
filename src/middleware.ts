@@ -18,7 +18,7 @@ export function middleware(request: NextRequest) {
     const accessToken = getCookie(request, "access_token");
 
     // If no access token and trying to visit /about, redirect to login
-    if (!accessToken && request.nextUrl.pathname.startsWith("/about")) {
+    if (!accessToken && request.nextUrl.pathname.startsWith("/cart")) {
         return NextResponse.redirect(new URL("/auth/login", request.url));
     }
 
@@ -27,7 +27,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: "/about", // Apply the middleware only to /product
+    matcher: "/cart", // Apply the middleware only to /product
 };
 
 

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useCart } from "@/context/CartContext"; 
 import { ProductType, CategoryType } from '@/types/product.type';
+import { Button } from '@/components/ui/button';
 
 const HomeViews = ({ products, categories }: { products: ProductType[], categories: CategoryType[] }) => {
     const [titleFilter, setTitleFilter] = useState('');
@@ -58,12 +59,13 @@ const HomeViews = ({ products, categories }: { products: ProductType[], categori
                                 <p>Category: {productCategory ? productCategory.name : 'Unknown'}</p>
                                 <p>Price: ${product.price}</p>
                                 <p>Description: {product.description || 'No description available.'}</p>
-                                <button
+                                {/* <button
                                     onClick={() => handleAddToCart(product)}
                                     className="mt-2 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
                                 >
                                     Add to Cart
-                                </button>
+                                </button> */}
+                                <Button onClick={() => handleAddToCart(product)}>Add to Cart</Button>
                             </div>
                         );
                     })
