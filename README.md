@@ -1,4 +1,4 @@
-# ShopSmart - Online Store Application [SHOPSMART](https://shopsmart-mauve.vercel.app)
+# ShopSmart - Online Store Application [SHOPSMART](https://online-shopsmart.vercel.app/)
 
 ShopSmart is a dynamic and interactive online store application built with **Next.js**, **TypeScript**, and **Tailwind CSS**. This project showcases essential features of a modern e-commerce platform, including user authentication, product browsing, and a shopping cart system.
 
@@ -193,6 +193,6 @@ Deploying the ShopSmart application on Vercel is straightforward:
 6. **View Your Application**:
    After deployment, Vercel will provide a live link to your application.
 
-7. **Deployment Link** : [shopsmart](https://shopsmart-mauve.vercel.app)
+7. **Deployment Link** : [shopsmart](https://online-shopsmart.vercel.app/)
 
 For more details, refer to the official [Vercel Documentation](https://vercel.com/docs).
