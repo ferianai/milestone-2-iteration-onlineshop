@@ -45,6 +45,7 @@ const customJestConfig: Config = {
     "!<rootDir>/src/pages/cart/**",
     "!<rootDir>/src/pages/payment/**",
     "!<rootDir>/src/views/**",
+    "!<rootDir>/src/components/ui/**",
   ],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
