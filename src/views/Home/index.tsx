@@ -41,7 +41,7 @@ const HomeViews = ({ products, categories }: { products: ProductType[], categori
                         return (
                             <div
                                 key={product.id}
-                                className="border rounded-md p-4 shadow-sm hover:shadow-lg transition"
+                                className="flex flex-col gap-2 border rounded-md p-4 shadow-sm hover:shadow-lg transition"
                             >
                                 <Link href={`/product/${product.id}`}>
                                     <img

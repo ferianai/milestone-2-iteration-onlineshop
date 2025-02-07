@@ -29,8 +29,6 @@ const ProductViews = ({ products, categories }: { products: ProductType[], categ
 
     return (
         <div>
-            <h1 className="text-2xl font-bold mb-4 text-center">Products</h1>
-
             {/* Filter Section */}
             <div className="mb-4">
                 <input
@@ -76,7 +74,7 @@ const ProductViews = ({ products, categories }: { products: ProductType[], categ
                     filteredProducts.map((product) => (
                         <div
                             key={product.id}
-                            className="border rounded-md p-4 shadow-sm hover:shadow-lg transition"
+                            className="flex flex-col border rounded-md p-4 shadow-sm hover:shadow-lg transition"
                         >
                             <Link href={`/product/${product.id}`}>
                                 <img
@@ -92,7 +90,7 @@ const ProductViews = ({ products, categories }: { products: ProductType[], categ
                                 <h2 className="text-lg font-bold mt-2">{product.title}</h2>
                             </Link>
                             <p>Price: ${product.price}</p>
-                            <Button onClick={() => handleAddToCart(product)}> Add to Cart</Button>
+                            <Button onClick={() => handleAddToCart(product)} className=''> Add to Cart</Button>
                         </div>
                     ))
                 )}

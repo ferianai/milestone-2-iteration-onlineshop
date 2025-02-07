@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className={`${style.navbar} border-b border-b-gray-400 py-5 sticky top-0 z-50 bg-white`}>
+        <nav className={`${style.navbar} border-b border-b-gray-400 py-8 sticky top-0 z-50 bg-white md:inline-flex`}>
             <ul>
                 <li>
                     <Link href={"/"}>Home</Link>
@@ -47,8 +47,8 @@ const Navbar: React.FC = () => {
                 </li>
             </ul>
             <ul>
-                <li>
-                    <Link href={"/"}>ShopSmart</Link>
+                <li className='font-black text-darkColor text-2xl text-bold tracking-wider'>
+                    <Link href={"/"}>SHOPSMART</Link>
                 </li>
             </ul>
             <ul>

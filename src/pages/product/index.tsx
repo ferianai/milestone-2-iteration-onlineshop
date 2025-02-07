@@ -68,6 +68,10 @@ const ProductPage: React.FC<ProductPageProps> = ({ categoriesData, productsData 
 
   return (
     <div>
+      <div className="text-center py-9 gap-8 flex flex-col items-center">
+        <h1 className="text-4xl font-bold">Product Clothing Collection</h1>
+        <p className="text-sm text-gray-500">Find everything you need to look and feel your best, and shop the latest fashion and lifestyle products.</p>
+      </div>
       <ProductViews products={products} categories={categories} />
     </div>
   );
